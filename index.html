@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Costco 标签重绘测试</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Costco 标签重绘测试</h1>
+          <p>拍价格牌，识别字段，重新生成干净标签。</p>
+        </div>
+        <span class="badge">Label Studio</span>
+      </header>
+
+      <section class="layout">
+        <div class="panel">
+          <div class="upload-grid">
+            <label class="upload">
+              <span>价格标签图</span>
+              <input id="priceInput" type="file" accept="image/*" capture="environment" />
+              <img id="pricePreview" alt="" />
+            </label>
+            <label class="upload">
+              <span>商品图（可选）</span>
+              <input id="productInput" type="file" accept="image/*" capture="environment" />
+              <img id="productPreview" alt="" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="extractBtn" class="btn primary">识别并生成标签</button>
+            <button id="downloadBtn" class="btn" disabled>下载标签图</button>
+          </div>
+
+          <div id="status" class="status">等待上传价格标签。</div>
+        </div>
+
+        <div class="panel">
+          <h2>字段确认</h2>
+          <div id="fields" class="fields"></div>
+          <div id="issues" class="issues"></div>
+        </div>
+
+        <div class="panel preview-panel">
+          <h2>干净标签预览</h2>
+          <canvas id="labelCanvas" width="760" height="360"></canvas>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
